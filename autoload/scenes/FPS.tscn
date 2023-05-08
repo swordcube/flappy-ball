@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bupxwlw50cye2"]
+
+[ext_resource type="Script" path="res://autoload/scenes/FPS.gd" id="1_ir2tg"]
+[ext_resource type="FontFile" uid="uid://d06gnkwl2kqby" path="res://assets/fonts/nes.otf" id="1_yo6qf"]
+
+[node name="FPS" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_ir2tg")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 107.0
+offset_bottom = 35.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_yo6qf")
+theme_override_font_sizes/font_size = 24
+text = "FPS: 0"

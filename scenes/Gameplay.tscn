@@ -1,0 +1,292 @@
+[gd_scene load_steps=19 format=3 uid="uid://6gh03fe1sxjj"]
+
+[ext_resource type="Script" path="res://scenes/Gameplay.gd" id="1_cuno5"]
+[ext_resource type="PackedScene" uid="uid://fwuxjhbpdr05" path="res://scenes/gameplay/Player.tscn" id="1_lx70u"]
+[ext_resource type="Texture2D" uid="uid://dtyw3vl6wyrmf" path="res://assets/images/background1.png" id="2_ix4cf"]
+[ext_resource type="PackedScene" uid="uid://dwbxxf6mtripi" path="res://scenes/gameplay/Pipe.tscn" id="3_ar3gp"]
+[ext_resource type="Script" path="res://scenes/gameplay/Pipe.gd" id="3_hvy4m"]
+[ext_resource type="Texture2D" uid="uid://diogavucvfsrj" path="res://assets/images/background2.png" id="3_xjan3"]
+[ext_resource type="Texture2D" uid="uid://dj0njejb8774n" path="res://assets/images/foreground.png" id="4_2x8oe"]
+[ext_resource type="FontFile" uid="uid://d06gnkwl2kqby" path="res://assets/fonts/nes.otf" id="5_6wh1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vdb4"]
+size = Vector2(2173, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcixr"]
+size = Vector2(24, 271)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqdot"]
+size = Vector2(48, 929)
+
+[sub_resource type="Animation" id="Animation_7aq3m"]
+resource_name = "shake"
+length = 0.416671
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-30, -10), Vector2(30, 5), Vector2(20, 0), Vector2(-20, 0), Vector2(10, 0), Vector2(-10, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k1ni3"]
+_data = {
+"shake": SubResource("Animation_7aq3m")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jam7"]
+bg_color = Color(0.968627, 0.462745, 0.133333, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.862745, 0.862745, 0.862745, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhv0t"]
+bg_color = Color(0.968627, 0.462745, 0.133333, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.862745, 0.862745, 0.862745, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m72nf"]
+bg_color = Color(0.94902, 0.580392, 0.341176, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.862745, 0.862745, 0.862745, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atbjs"]
+bg_color = Color(0.717647, 0.403922, 0.2, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.862745, 0.862745, 0.862745, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0536g"]
+bg_color = Color(0.968627, 0.462745, 0.133333, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.862745, 0.862745, 0.862745, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Gameplay" type="Node2D"]
+script = ExtResource("1_cuno5")
+
+[node name="BG" type="ParallaxBackground" parent="."]
+scroll_base_offset = Vector2(0, -92)
+
+[node name="BG but real" type="ParallaxLayer" parent="BG"]
+motion_mirroring = Vector2(1440, 0)
+
+[node name="BG but realer" type="Sprite2D" parent="BG/BG but real"]
+scale = Vector2(5.64, 5.64)
+texture = ExtResource("2_ix4cf")
+centered = false
+
+[node name="BG but realer2" type="Sprite2D" parent="BG/BG but real"]
+position = Vector2(360, 0)
+scale = Vector2(5.64, 5.64)
+texture = ExtResource("3_xjan3")
+centered = false
+
+[node name="BG but realer3" type="Sprite2D" parent="BG/BG but real"]
+position = Vector2(720, 0)
+scale = Vector2(5.64, 5.64)
+texture = ExtResource("2_ix4cf")
+centered = false
+
+[node name="BG but realer4" type="Sprite2D" parent="BG/BG but real"]
+position = Vector2(1080, 0)
+scale = Vector2(5.64, 5.64)
+texture = ExtResource("3_xjan3")
+centered = false
+
+[node name="pipers" type="ParallaxLayer" parent="BG"]
+motion_offset = Vector2(0, 92)
+
+[node name="Pipes" type="Node2D" parent="BG/pipers"]
+
+[node name="ground real" type="ParallaxLayer" parent="BG"]
+motion_mirroring = Vector2(1440, 0)
+
+[node name="sex" type="Sprite2D" parent="BG/ground real"]
+visibility_layer = 512
+position = Vector2(0, 722)
+scale = Vector2(5.64, 5.64)
+texture = ExtResource("4_2x8oe")
+centered = false
+
+[node name="sex2" type="Sprite2D" parent="BG/ground real"]
+visibility_layer = 512
+position = Vector2(360, 722)
+scale = Vector2(5.64, 5.64)
+texture = ExtResource("4_2x8oe")
+centered = false
+
+[node name="sex3" type="Sprite2D" parent="BG/ground real"]
+visibility_layer = 512
+position = Vector2(720, 722)
+scale = Vector2(5.64, 5.64)
+texture = ExtResource("4_2x8oe")
+centered = false
+
+[node name="sex4" type="Sprite2D" parent="BG/ground real"]
+visibility_layer = 512
+position = Vector2(1080, 722)
+scale = Vector2(5.64, 5.64)
+texture = ExtResource("4_2x8oe")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="BG/ground real"]
+position = Vector2(720, 770)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/ground real/Area2D"]
+position = Vector2(366.5, 0)
+shape = SubResource("RectangleShape2D_7vdb4")
+
+[node name="PipeTemplate" type="Node2D" parent="."]
+visible = false
+modulate = Color(0.337255, 0.941176, 0.631373, 1)
+position = Vector2(1400, 0)
+script = ExtResource("3_hvy4m")
+
+[node name="Pipe" parent="PipeTemplate" instance=ExtResource("3_ar3gp")]
+position = Vector2(0, 536)
+
+[node name="Pipe2" parent="PipeTemplate" instance=ExtResource("3_ar3gp")]
+position = Vector2(0, 200)
+scale = Vector2(1, -1)
+
+[node name="PassArea" type="Area2D" parent="PipeTemplate"]
+position = Vector2(0, 368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTemplate/PassArea"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_vcixr")
+
+[node name="KillArea" type="Area2D" parent="PipeTemplate"]
+position = Vector2(0, -232)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTemplate/KillArea"]
+shape = SubResource("RectangleShape2D_jqdot")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="KillArea2" type="Area2D" parent="PipeTemplate"]
+position = Vector2(0, 928)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTemplate/KillArea2"]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_jqdot")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="Player" parent="." instance=ExtResource("1_lx70u")]
+position = Vector2(640, 360)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
+libraries = {
+"": SubResource("AnimationLibrary_k1ni3")
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+offset_top = 40.0
+offset_right = 1280.0
+offset_bottom = 114.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_6wh1x")
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+
+[node name="LoseScreen" type="Panel" parent="UI"]
+visible = false
+offset_left = 397.0
+offset_top = 229.0
+offset_right = 883.0
+offset_bottom = 491.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7jam7")
+
+[node name="YouLostAngryFace" type="Label" parent="UI/LoseScreen"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 486.0
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0.47451, 0.380392, 0.745098, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_6wh1x")
+theme_override_font_sizes/font_size = 40
+text = "you lost!"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="CoolSwag" type="Label" parent="UI/LoseScreen"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 88.0
+offset_right = 466.0
+offset_bottom = 139.0
+theme_override_colors/font_outline_color = Color(0.47451, 0.380392, 0.745098, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("5_6wh1x")
+theme_override_font_sizes/font_size = 18
+text = "Score: 0
+Best Score: 0"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="TryAgain" type="Button" parent="UI/LoseScreen"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 167.0
+offset_right = 314.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0.862745, 0.862745, 0.862745, 1)
+theme_override_fonts/font = ExtResource("5_6wh1x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhv0t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m72nf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_atbjs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0536g")
+text = " Try Again "
+
+[connection signal="body_entered" from="BG/ground real/Area2D" to="." method="_on_touch_grass"]
+[connection signal="body_entered" from="PipeTemplate/PassArea" to="." method="_on_pipe_passed_through"]
+[connection signal="body_entered" from="PipeTemplate/PassArea" to="PipeTemplate" method="_on_pipe_pass_through"]
+[connection signal="body_entered" from="PipeTemplate/KillArea" to="." method="_on_pipe_collision"]
+[connection signal="body_entered" from="PipeTemplate/KillArea2" to="." method="_on_pipe_collision"]
+[connection signal="pressed" from="UI/LoseScreen/TryAgain" to="." method="_on_try_again_pressed"]

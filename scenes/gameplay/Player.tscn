@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://fwuxjhbpdr05"]
+
+[ext_resource type="SpriteFrames" uid="uid://wv36eoc31b5y" path="res://assets/images/basketball.tres" id="1_jks6q"]
+[ext_resource type="Script" path="res://scenes/gameplay/Player.gd" id="1_t4dmr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5a65h"]
+radius = 45.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_t4dmr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("1_jks6q")
+animation = &"normal"
+frame_progress = 0.484165
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5a65h")

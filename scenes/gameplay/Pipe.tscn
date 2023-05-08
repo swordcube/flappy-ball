@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwbxxf6mtripi"]
+
+[ext_resource type="SpriteFrames" uid="uid://bu0n782l5l3lc" path="res://assets/images/pipes.tres" id="1_cavav"]
+
+[node name="Pipe" type="Node2D"]
+
+[node name="Top" type="AnimatedSprite2D" parent="."]
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("1_cavav")
+animation = &"top"
+
+[node name="Pipe" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 480)
+scale = Vector2(6, 54)
+sprite_frames = ExtResource("1_cavav")
+animation = &"middle"
